@@ -1,0 +1,192 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap");
+
+:root {
+  --color1: #773611;
+  --color2: #b6bb18;
+  --colorFont: #c1d6ce;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+}
+
+body {
+  display: flex;
+  overflow: hidden;
+}
+
+/* Inicio navbar */
+.navbar {
+  background-color: var(--color1);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  width: 25vw;
+  height: 100vh;
+  transition: 0.4s;
+}
+
+.navbar__logo {
+  width: 18rem;
+  object-fit: cover;
+}
+
+.navbar__ul {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  row-gap: 4rem;
+  list-style: none;
+}
+
+.navbar__a {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--colorFont);
+  border: 1px solid var(--color2);
+  padding: 1rem 0.8rem;
+  letter-spacing: 0.1rem;
+  font-size: 0.9rem;
+  font-weight: 100;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.navbar__a--width {
+  padding: 1rem 1.6rem;
+}
+
+.navbar__a:hover {
+  background-color: var(--color2);
+}
+
+.navbar__p {
+  text-align: center;
+  color: var(--colorFont);
+  font-size: 1rem;
+  padding: 0 0.6rem;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+}
+
+/* Fin navbar */
+
+/* Inicio formulario de registro de clientes */
+
+.formRegister {
+  width: 75vw;
+  height: 100vh;
+  background-color: var(--color2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-direction: column;
+}
+
+.formRegister__form {
+  background-color: var(--color1);
+  width: 40%;
+  height: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  row-gap: 0.6rem;
+  padding: 1rem;
+}
+
+.formRegister__input {
+  border: none;
+  outline: none;
+  background: none;
+  border-bottom: 1px solid var(--color2);
+  color: #fff;
+  padding-bottom: 0.4rem;
+  width: 70%;
+  text-align: center;
+}
+
+.formRegister__input::placeholder {
+  color: var(--colorFont);
+  letter-spacing: 0.1rem;
+  font-size: 0.75rem;
+}
+
+.formRegister__btn {
+  color: var(--colorFont);
+  border: 1px solid var(--color2);
+  padding: 0.7rem 0;
+  letter-spacing: 0.1rem;
+  font-size: 0.9rem;
+  font-weight: 100;
+  text-align: center;
+  transition: 0.3s;
+  background: none;
+  outline: none;
+  width: 70%;
+  cursor: pointer;
+}
+
+.formRegister__btn:hover {
+  background-color: var(--color2);
+}
+
+/* Fin formulario de registro de clientes */
+
+/* Inicio Menu toggle */
+
+.menu__toggle {
+  display: none;
+  font-size: 2.5rem;
+  color: var(--color1);
+  margin-right: auto;
+  margin-left: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.menu__toggle--color {
+  color: var(--color2);
+}
+
+/* Fin Menu toggle */
+
+/* Inicio Responsive */
+
+@media (max-width: 768px) {
+  .menu__toggle {
+    display: block;
+  }
+
+  .navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    width: 100vw;
+    transition: 0.4s;
+  }
+
+  .navbar--active {
+    transform: translateX(0);
+    z-index: 1;
+    transition: 0.4s;
+  }
+
+  .formRegister {
+    width: 100vw;
+  }
+
+  .formRegister__form {
+    width: 90%;
+  }
+}
+
+/* Fin Responsive */

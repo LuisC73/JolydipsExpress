@@ -1,0 +1,15 @@
+extends ../layout/index
+
+block header 
+  include ../layout/navbar
+
+block formulario
+  section.formRegister
+    <i class='bx bx-menu menu__toggle' id="menuOpen"></i>
+    form(action="POST" method="method" class="formRegister__form")
+      input(class='formRegister__input' id="nombre" name="nombre" placeholder="Nombre" type="text")
+      input(class='formRegister__input' id="precio" name="precio" placeholder="Precio" type="number")
+      input(class='formRegister__input' id="referencia" name="referencia" placeholder="Referencia" type="text")
+      input(class='formRegister__input' id="cantidad" name="cantidad" placeholder="Cantidad" type="email")
+      input(class='formRegister__input' id="descripción" name="descripción" placeholder="Descripción" type="textarea")
+      input(class='formRegister__btn' id="guardarProducto" value="Guardar" type="submit")

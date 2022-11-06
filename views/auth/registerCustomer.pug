@@ -1,0 +1,16 @@
+extends ../layout/index
+
+block header 
+  include ../layout/navbar
+
+block formulario
+  section.formRegister
+    <i class='bx bx-menu menu__toggle' id="menuOpen"></i>
+    form(action="POST" method="method" class="formRegister__form")
+      input(class='formRegister__input' id="nombre" name="nombre" placeholder="Nombre" type="text")
+      input(class='formRegister__input' id="apellido" name="apellido" placeholder="Apellido" type="text")
+      input(class='formRegister__input' id="documento" name="documento" placeholder="Documento" type="text")
+      input(class='formRegister__input' id="correo" name="correo" placeholder="Torreo" type="email")
+      input(class='formRegister__input' id="direccion" name="direccion" placeholder="Dirección" type="email")
+      input(class='formRegister__input' id="telefono" name="telefono" placeholder="Telefono" type="number")
+      input(class='formRegister__btn' id="guardarCliente" value="GUARDAR" type="submit")
