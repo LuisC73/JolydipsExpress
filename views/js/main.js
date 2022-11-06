@@ -63,12 +63,13 @@ window.addEventListener("DOMContentLoaded", () => {
     input.addEventListener("keyup", validateCustormer);
   });
 
-  formCustomer.addEventListener("submit", (e) => {
-    e.preventDefault();
-  });
+  // formCustomer.addEventListener("submit", (e) => {
+  //   e.preventDefault();
+  // });
 
   /* Fin Validaciones registro clientes */
 
   /* Inicio Validaciones registro productos */
+
   /* Fin Validaciones registro productos */
 });
