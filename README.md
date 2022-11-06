@@ -2,7 +2,7 @@
 
 ## Overview
 
-![design](./public/design.jpg)
+![design](./public/design.png)
 
 ### Built With
 
