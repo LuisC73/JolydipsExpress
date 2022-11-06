@@ -113,6 +113,7 @@ body {
   width: 70%;
   text-align: center;
   resize: none;
+  transition: 0.4s;
 }
 
 .formRegister__input::placeholder {
@@ -138,6 +139,18 @@ body {
 
 .formRegister__btn:hover {
   background-color: var(--color2);
+}
+
+.formRegister__errors {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: red;
+}
+
+.formRegister__input--error {
+  border-bottom: 1px solid red;
 }
 
 /* Fin formulario de registro de clientes */

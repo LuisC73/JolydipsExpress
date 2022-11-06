@@ -6,7 +6,7 @@ block header
 block formulario
   section.formRegister
     <i class='bx bx-menu menu__toggle' id="menuOpen"></i>
-    form(action="/registerCustomer" method="POST" class="formRegister__form")
+    form(action="/registerCustomer" method="POST" class="formRegister__form" id="formCustomer")
       input(class='formRegister__input' id="name" name="name" placeholder="Nombre" type="text")
       input(class='formRegister__input' id="last_name" name="last_name" placeholder="Apellido" type="text")
       input(class='formRegister__input' id="document" name="document" placeholder="Documento" type="number")
@@ -14,3 +14,5 @@ block formulario
       input(class='formRegister__input' id="address" name="address" placeholder="Dirección" type="text")
       input(class='formRegister__input' id="phone" name="phone" placeholder="Telefono" type="number")
       input(class='formRegister__btn' id="guardarCliente" value="GUARDAR" type="submit")
+      section.formRegister__errors
+        p.formRegister__p#errors
