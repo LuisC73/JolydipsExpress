@@ -6,4 +6,11 @@ const formRegisterCustomer = (req, res) => {
   });
 };
 
-export { formRegisterCustomer };
+const createCustomer = async (req, res) => {
+  const customer = await Customer.create(req.body);
+  res.json(customer);
+  console.log(req.body);
+  console.log(`Cliente guardado correctamente`);
+};
+
+export { formRegisterCustomer, createCustomer };

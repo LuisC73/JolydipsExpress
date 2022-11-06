@@ -6,7 +6,7 @@ block header
 block formulario
   section.formRegister
     <i class='bx bx-menu menu__toggle' id="menuOpen"></i>
-    form(action="POST" method="method" class="formRegister__form")
+    form(method="POST" class="formRegister__form" action="/auth/registerProduct")
       input(class='formRegister__input' id="nombre" name="nombre" placeholder="Nombre" type="text")
       input(class='formRegister__input' id="precio" name="precio" placeholder="Precio" type="number")
       input(class='formRegister__input' id="referencia" name="referencia" placeholder="Referencia" type="text")

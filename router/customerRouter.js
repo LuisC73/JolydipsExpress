@@ -1,9 +1,16 @@
 import express from "express";
-import { formRegisterCustomer } from "../controller/customersController.js";
-import { formRegisterProduct } from "../controller/productsController.js";
+import {
+  createCustomer,
+  formRegisterCustomer,
+} from "../controller/customersController.js";
+import {
+  createProduct,
+  formRegisterProduct,
+} from "../controller/productsController.js";
 const customerRoute = express.Router();
 
 customerRoute.get("/registerCustomer", formRegisterCustomer);
+customerRoute.post("/registerCustomer", createCustomer);
 customerRoute.get("/registerProduct", formRegisterProduct);
 
 export { customerRoute };

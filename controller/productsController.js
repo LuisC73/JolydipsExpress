@@ -6,4 +6,11 @@ const formRegisterProduct = (req, res) => {
   });
 };
 
-export { formRegisterProduct };
+const createProduct = async (req, res) => {
+  const product = await Product.create(req.body);
+  res.json(product);
+  console.log(req.body);
+  console.log(`Producto guardado correctamente`);
+};
+
+export { formRegisterProduct, createProduct };
