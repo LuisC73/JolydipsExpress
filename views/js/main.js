@@ -38,7 +38,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const validateField = (expression, field, data) => {
     if (!expression.test(field.value)) {
       field.classList.add("formRegister__input--error");
-      errors.textContent = `${data} Equivocado`;
+      errors.textContent = `El campo ${data} es incorrecto`;
       fields[data] = false;
     } else {
       field.classList.remove("formRegister__input--error");
@@ -88,7 +88,7 @@ window.addEventListener("DOMContentLoaded", () => {
       inputsForm.forEach((input) =>
         input.classList.toggle("formRegister__input--error")
       );
-      errors.textContent = "Formulario no completado!!";
+      errors.textContent = "El Formulario no esta completado!!";
     }
   });
 
