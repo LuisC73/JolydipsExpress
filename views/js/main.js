@@ -21,51 +21,76 @@ window.addEventListener("DOMContentLoaded", () => {
 
   const expressions = {
     text: /^[A-Za-z]{0,20}$/i,
-    number: /^[0-9]{0,10}$/i,
+    number: /^[0-9]{10}$/i,
     email: /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/,
-    address: / ^ [a-zA-Z] + [a-zA-Z] + $ /,
+    address: /^[A-Za-z]{0,20}$/i,
+  };
+
+  const fields = {
+    nombre: false,
+    apellido: false,
+    documento: false,
+    correo: false,
+    direccion: false,
+    telefono: false,
   };
 
   const validateField = (expression, field, data) => {
     if (!expression.test(field.value)) {
       field.classList.add("formRegister__input--error");
       errors.textContent = `${data} Equivocado`;
+      fields[data] = false;
     } else {
       field.classList.remove("formRegister__input--error");
       errors.textContent = "";
+      fields[data] = true;
     }
   };
 
   const validateCustormer = (e) => {
     switch (e.target.name) {
       case "name":
-        validateField(expressions.text, e.target, "Nombre");
+        validateField(expressions.text, e.target, "nombre");
         break;
       case "last_name":
-        validateField(expressions.text, e.target, "Apellido");
+        validateField(expressions.text, e.target, "apellido");
         break;
       case "document":
-        validateField(expressions.number, e.target, "Documento");
+        validateField(expressions.number, e.target, "documento");
         break;
       case "email":
-        validateField(expressions.email, e.target, "Correo");
+        validateField(expressions.email, e.target, "correo");
         break;
       case "address":
-        validateField(expressions.address, e.target, "Dirección");
+        validateField(expressions.address, e.target, "direccion");
         break;
       case "phone":
-        validateField(expressions.number, e.target, "Telefono");
+        validateField(expressions.number, e.target, "telefono");
         break;
     }
   };
 
   inputsForm.forEach((input) => {
     input.addEventListener("keyup", validateCustormer);
+    input.addEventListener("blur", validateCustormer);
   });
 
-  // formCustomer.addEventListener("submit", (e) => {
-  //   e.preventDefault();
-  // });
+  formCustomer.addEventListener("submit", (e) => {
+    if (
+      !fields.nombre &&
+      !fields.apellido &&
+      !fields.documento &&
+      !fields.correo &&
+      !fields.direccion &&
+      !fields.telefono
+    ) {
+      e.preventDefault();
+      inputsForm.forEach((input) =>
+        input.classList.toggle("formRegister__input--error")
+      );
+      errors.textContent = "Formulario no completado!!";
+    }
+  });
 
   /* Fin Validaciones registro clientes */
 
