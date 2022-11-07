@@ -8,9 +8,11 @@ const formRegisterProduct = (req, res) => {
 
 const createProduct = async (req, res) => {
   const product = await Product.create(req.body);
-  res.json(product);
-  console.log(req.body);
-  console.log(`Producto guardado correctamente`);
+  //res.json(product);
+  res.render("templates/productCreated", {
+    nameView: "Producto Creado",
+    msg: "El Producto se guardo Correctamente",
+  });
 };
 
 export { formRegisterProduct, createProduct };
