@@ -20,10 +20,10 @@ window.addEventListener("DOMContentLoaded", () => {
     inputsForm = document.querySelectorAll(".formRegister__input");
 
   const expressions = {
-    text: /^[A-Za-z]{0,20}$/i,
+    text: /^[A-Za-z\s]{0,20}$/i,
     number: /^[0-9]{10}$/i,
     email: /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/,
-    address: /^[A-Za-z]{0,20}$/i,
+    address: /\d+\w+\s\w+\s\w+/,
   };
 
   const fields = {
