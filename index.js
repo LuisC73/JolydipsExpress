@@ -1,5 +1,5 @@
 import express from "express";
-import { customerRoute } from "./router/customerRouter.js";
+import { pageRoute } from "./router/pageRouter.js";
 import { dataBase } from "./config/dataBase.js";
 const app = express();
 const port = 3000;
@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "pug");
 app.set("views", "./views");
 app.use("/static", express.static("public"));
-app.use(customerRoute);
+app.use(pageRoute);
 
 app.listen(port, () => {
   console.log(`Server running on the port ${port}`);
