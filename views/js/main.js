@@ -19,14 +19,14 @@ window.addEventListener("DOMContentLoaded", () => {
     errors = document.getElementById("errors"),
     inputsForm = document.querySelectorAll(".formRegister__input");
 
-  const expressions = {
+  const expressionsCustomer = {
     text: /^[A-Za-z\s]{0,20}$/i,
     number: /^[0-9]{10}$/i,
     email: /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/,
     address: /\d+\w+\s\w+\s\w+/,
   };
 
-  const fields = {
+  const fieldsCustomer = {
     nombre: false,
     apellido: false,
     documento: false,
@@ -35,54 +35,54 @@ window.addEventListener("DOMContentLoaded", () => {
     telefono: false,
   };
 
-  const validateField = (expression, field, data) => {
+  const validateFieldCustomer = (expression, field, data) => {
     if (!expression.test(field.value)) {
       field.classList.add("formRegister__input--error");
       errors.textContent = `El campo ${data} es incorrecto`;
-      fields[data] = false;
+      fieldsCustomer[data] = false;
     } else {
       field.classList.remove("formRegister__input--error");
       errors.textContent = "";
-      fields[data] = true;
+      fieldsCustomer[data] = true;
     }
   };
 
-  const validateCustormer = (e) => {
+  const validateFormCustormer = (e) => {
     switch (e.target.name) {
       case "name":
-        validateField(expressions.text, e.target, "nombre");
+        validateFieldCustomer(expressionsCustomer.text, e.target, "nombre");
         break;
       case "last_name":
-        validateField(expressions.text, e.target, "apellido");
+        validateFieldCustomer(expressionsCustomer.text, e.target, "apellido");
         break;
       case "document":
-        validateField(expressions.number, e.target, "documento");
+        validateFieldCustomer(expressionsCustomer.number, e.target, "documento");
         break;
       case "email":
-        validateField(expressions.email, e.target, "correo");
+        validateFieldCustomer(expressionsCustomer.email, e.target, "correo");
         break;
       case "address":
-        validateField(expressions.address, e.target, "direccion");
+        validateFieldCustomer(expressionsCustomer.address, e.target, "direccion");
         break;
       case "phone":
-        validateField(expressions.number, e.target, "telefono");
+        validateFieldCustomer(expressionsCustomer.number, e.target, "telefono");
         break;
     }
   };
 
   inputsForm.forEach((input) => {
-    input.addEventListener("keyup", validateCustormer);
-    input.addEventListener("blur", validateCustormer);
+    input.addEventListener("keyup", validateFormCustormer);
+    input.addEventListener("blur", validateFormCustormer);
   });
 
   formCustomer.addEventListener("submit", (e) => {
     if (
-      !fields.nombre &&
-      !fields.apellido &&
-      !fields.documento &&
-      !fields.correo &&
-      !fields.direccion &&
-      !fields.telefono
+      !fieldsCustomer.nombre &&
+      !fieldsCustomer.apellido &&
+      !fieldsCustomer.documento &&
+      !fieldsCustomer.correo &&
+      !fieldsCustomer.direccion &&
+      !fieldsCustomer.telefono
     ) {
       e.preventDefault();
       inputsForm.forEach((input) =>
