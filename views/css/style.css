@@ -153,6 +153,44 @@ body {
 
 /* Fin formulario de registro de clientes */
 
+/* Inicio mensaje de exito */
+
+.successCreated {
+  background-color: var(--color2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  row-gap: 1rem;
+}
+
+.successCreated__h1 {
+  color: var(--color1);
+  font-size: 2rem;
+}
+
+.successCreated__h2 {
+  color: var(--colorFont);
+}
+
+.successCreated__a {
+  color: var(--colorFont);
+  border: 1px solid var(--color1);
+  background-color: var(--color1);
+  padding: 0.7rem 1rem;
+  letter-spacing: 0.1rem;
+  font-size: 0.9rem;
+  font-weight: 100;
+  text-align: center;
+  transition: 0.3s;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
 /* Inicio Menu toggle */
 
 .menu__toggle {

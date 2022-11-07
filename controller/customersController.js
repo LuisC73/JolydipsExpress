@@ -8,9 +8,11 @@ const formRegisterCustomer = (req, res) => {
 
 const createCustomer = async (req, res) => {
   const customer = await Customer.create(req.body);
-  res.json(customer);
-  console.log(req.body);
-  console.log(`Cliente guardado correctamente`);
+  // res.json(customer);
+  res.render("templates/customerCreated", {
+    nameView: "Cliente Creado",
+    msg: "El cliente fue creado correctamente",
+  });
 };
 
 export { formRegisterCustomer, createCustomer };
