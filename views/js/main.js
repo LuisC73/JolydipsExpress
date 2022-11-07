@@ -20,11 +20,14 @@ window.addEventListener("DOMContentLoaded", () => {
     inputsForm = document.querySelectorAll(".formRegister__input");
 
   const expressionsCustomer = {
-    text: /^[A-Za-z\s]{0,20}$/i,
-    number: /^[0-9]{10}$/i,
-    email: /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/,
-    address: /\d+\w+\s\w+\s\w+/,
-  };
+    text: /^[A-Za-z\s]{1,25}$/i,
+    numberPhone: /^[0-9]{10,12}$/i,
+    numberDoc: /^[0-9]{10}$/i,
+    email: /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
+    address: /^[A-Za-z\s]{1,17}\s?\d{0,3}\s?[A-Za-z\s]{0,3}[0-9]{0,5}\s?\#\s?[0-9]{1,5}\s?[A-Za-z\s]{0,3}\-\s{0,1}[0-9]{1,4}$/,
+    //address: /\d+\w+\s\w+\s\w+/,
+    
+  };    
 
   const fieldsCustomer = {
     nombre: false,
@@ -56,7 +59,7 @@ window.addEventListener("DOMContentLoaded", () => {
         validateFieldCustomer(expressionsCustomer.text, e.target, "apellido");
         break;
       case "document":
-        validateFieldCustomer(expressionsCustomer.number, e.target, "documento");
+        validateFieldCustomer(expressionsCustomer.numberDoc, e.target, "documento");
         break;
       case "email":
         validateFieldCustomer(expressionsCustomer.email, e.target, "correo");
@@ -65,7 +68,7 @@ window.addEventListener("DOMContentLoaded", () => {
         validateFieldCustomer(expressionsCustomer.address, e.target, "direccion");
         break;
       case "phone":
-        validateFieldCustomer(expressionsCustomer.number, e.target, "telefono");
+        validateFieldCustomer(expressionsCustomer.numberPhone, e.target, "telefono");
         break;
     }
   };
