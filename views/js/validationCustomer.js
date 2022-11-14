@@ -8,8 +8,7 @@ window.addEventListener("DOMContentLoaded", () => {
     text: /^[A-Za-z\s]{1,25}$/i,
     number: /^[0-9]{10}$/i,
     email: /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
-    address:
-      /^[A-Za-z\s]{1,17}\s?\d{0,3}\s?[A-Za-z\s]{0,3}[0-9]{0,5}\s?\#\s?[0-9]{1,5}\s?[A-Za-z\s]{0,3}\-\s{0,1}[0-9]{1,4}$/,
+    address:/^([A-Za-z\s]{1,17}\s?)\d{0,3}\s?[A-Za-z*\s]{0,3}\s{1}[.-_+\#\s*]?[0-9]{1,5}\s?[A-Za-z\s]{0,3}\-\s{0,1}[0-9]{1,4}$/,
   };
 
   const fieldsCustomer = {
@@ -44,21 +43,13 @@ window.addEventListener("DOMContentLoaded", () => {
         validateFieldCustomer(expressionsCustomer.text, e.target, "apellido");
         break;
       case "document":
-        validateFieldCustomer(
-          expressionsCustomer.number,
-          e.target,
-          "documento"
-        );
+        validateFieldCustomer(expressionsCustomer.number,e.target,"documento");
         break;
       case "email":
         validateFieldCustomer(expressionsCustomer.email, e.target, "correo");
         break;
       case "address":
-        validateFieldCustomer(
-          expressionsCustomer.address,
-          e.target,
-          "direccion"
-        );
+        validateFieldCustomer(expressionsCustomer.address,e.target,"direccion");
         break;
       case "phone":
         validateFieldCustomer(expressionsCustomer.number, e.target, "telefono");
@@ -76,7 +67,8 @@ window.addEventListener("DOMContentLoaded", () => {
       if (!fieldsCustomer[i]) {
         e.preventDefault();
         inputsForm.forEach((input) =>
-          input.classList.toggle("formRegister__input--error")
+          input.classList.contains("formRegister__input--error"),
+          errors.textContent = "El Formulario tiene un error!!!"
         );
         errors.textContent = "El Formulario no esta completado!!";
       }

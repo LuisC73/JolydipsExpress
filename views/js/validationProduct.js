@@ -40,20 +40,13 @@ window.addEventListener("DOMContentLoaded", () => {
         validateFieldProducts(expressionsProducts.number, e.target, "precio");
         break;
       case "reference":
-        validateFieldProducts(
-          expressionsProducts.reference,
-          e.target,
-          "referencia"
-        );
+        validateFieldProducts(expressionsProducts.reference,e.target,"referencia");
         break;
       case "amount":
         validateFieldProducts(expressionsProducts.number, e.target, "cantidad");
         break;
       case "description":
-        validateFieldProducts(
-          expressionsProducts.text,
-          e.target,
-          "descripcion"
+        validateFieldProducts(expressionsProducts.text,e.target,"descripcion"
         );
         break;
     }
@@ -69,7 +62,8 @@ window.addEventListener("DOMContentLoaded", () => {
       if (!fieldsProducts[i]) {
         e.preventDefault();
         inputsFormProducts.forEach((input) =>
-          input.classList.toggle("formRegister__input--error")
+          input.classList.contains("formRegister__input--error"),
+          errors.textContent = "El Formulario tiene un Error!!"
         );
         errors.textContent = "El Formulario no esta completado!!";
       }
