@@ -30,8 +30,6 @@ window.addEventListener("DOMContentLoaded", () => {
       errors.textContent = "";
       fieldsCustomer[data] = true;
     }
-
-    console.log(fieldsCustomer);
   };
 
   const validateFormCustormer = (e) => {
